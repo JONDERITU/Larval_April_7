@@ -1,46 +1,25 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>About us page </title>
+@extends('pages/layouts')
+@section('content')
+    <div class="title">Cytonn Technologies form</div>
+    <div class="col-lg-4">
+        {!! Form::open(['url' => '/users/register']) !!}
+        <div class="form-group col-lg-12">
 
-    <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
+            {!! Form::label('Your Name') !!}
+            {!! Form::text('name', null,
+                array('required',
+                      'class'=>'form-control',
+                      'placeholder'=>'Your name')) !!}
+        </div>
 
-    <style>
-        html, body {
-            height: 100%;
-        }
+        <div class="form-group col-lg-12">
 
-        body {
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            display: table;
-            font-weight: 100;
-            font-family: 'Lato';
-        }
+            {!! Form::label('Your E-mail Address') !!}
+            {!! Form::email('email', null, ['required', 'class'=>'form-control', 'placeholder'=>'Your e-mail address']) !!}
+        </div>
 
-        .container {
-            text-align: center;
-            display: table-cell;
-            vertical-align: middle;
-        }
+        {!! Form::submit('Submit', []) !!}
 
-        .content {
-            text-align: center;
-            display: inline-block;
-        }
-
-        .title {
-            font-size: 96px;
-        }
-    </style>
-</head>
-<body>
-<div class="container">
-    <div class="content">
-        <div class="title">About Cytonn Technologies</div>
-
+        {!! Form::close() !!}
     </div>
-</div>
-</body>
-</html>
+@stop

@@ -19,3 +19,5 @@ Route::get('/', function () {
 Route::get('about',function(){
     return view ('pages.about'); //resources/views/pages/about.blade.php also (pages/about)
     });
+
+Route::post('/users/register', "UsersController@store");
