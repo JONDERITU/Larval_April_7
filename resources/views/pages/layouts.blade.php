@@ -3,9 +3,11 @@
 <head>
     <title>Laravel</title>
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-
-    <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
     <style>
         html, body {
@@ -16,9 +18,9 @@
             margin: 0;
             padding: 0;
             width: 100%;
-            display: table;
+            /*display: table;*/
             font-weight: 100;
-            font-family: 'Lato';
+            font-family: 'roboto';
         }
 
         .container {
@@ -27,23 +29,46 @@
             vertical-align: middle;
         }
 
-        .content {
-            text-align: center;
-            display: inline-block;
-        }
+            .content {
+                text-align: center;
+                display: inline-block;
+            }
 
         .title {
-            font-size: 96px;
+            font-size: 28px;
+        }
+        .table-striped {
+            background-color:#EAF2D3 !important;
+        }
+
+        table{text-align: center;}
+        .navbar{
+            background-color: #007c67;
+        }
+        .navbar-default .navbar-nav>li>a {
+            color: #FFF;
         }
     </style>
 </head>
-<body>
-<div class="container">
-    <div class="main">
+    <body>
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">CRUD APP</a>
+                </div>
+                <ul class="nav navbar-nav pull-right">
+                    <li class="active"><a href="#">Home</a></li>
+                    <li><a href="#">Manage Clients</a></li>
+                    <li><a href="http://crud.app/about"> Add clients</a></li>
+                    <li><a href="#">Login</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="container">
+            <div class="main">
+                @yield('content')
 
-        @yield('content')
-
-    </div>
-</div>
-</body>
+            </div>
+        </div>
+    </body>
 </html>

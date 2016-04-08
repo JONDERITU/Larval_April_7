@@ -1,8 +1,8 @@
 @extends('pages/layouts')
 @section('content')
-    <div class="title">Cytonn Technologies form</div>
+    <div class="title">Cytonn Technologies Client form</div>
     <div class="col-lg-4">
-        {!! Form::open(['url' => '/users/register']) !!}
+        {!! Form::open(['url' => '/clients/register']) !!}
         <div class="form-group col-lg-12">
 
             {!! Form::label('Your Name') !!}

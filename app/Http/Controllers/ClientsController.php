@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Client;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-class UsersController extends Controller
+class ClientsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +17,8 @@ class UsersController extends Controller
      */
     public function index()
     {
-        //
+        $clientlist= Client::get();
+        return view ('pages/clientlist', compact('clientlist'));
     }
 
     /**
@@ -37,11 +39,14 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
-        //dd($request->all());
-        Clients::create([
+//        dd($request->all());
+        Client::create([
             'name' => $request['name'],
             'email' => $request['email']
         ]);
+
+//        return back();
+        return redirect('pages/clientlist');
     }
 
     /**
@@ -52,7 +57,7 @@ class UsersController extends Controller
      */
     public function show($id)
     {
-        //
+
     }
 
     /**
@@ -63,7 +68,8 @@ class UsersController extends Controller
      */
     public function edit($id)
     {
-        //
+        $client= Client::where('id', $id) ->first();
+        return view('pages/updateClient', compact ('client'));
     }
 
     /**
@@ -75,7 +81,13 @@ class UsersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        //find the client ID
+        $client = Client::findOrFail($id);
+        //update user details
+        $client->update($request->all());
+
+        //display some page
+        return redirect ('pages/clientlist');
     }
 
     /**
@@ -86,6 +98,8 @@ class UsersController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $client = Client::find($id);
+        $client->delete();
+        return redirect('pages/clientlist');
     }
 }

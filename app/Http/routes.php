@@ -20,4 +20,8 @@ Route::get('about',function(){
     return view ('pages.about'); //resources/views/pages/about.blade.php also (pages/about)
     });
 
-Route::post('/users/register', "UsersController@store");
+Route::post('clients/register', "ClientsController@store");
+Route::get('pages/clientlist', "ClientsController@index");
+Route::get('clientDelete/{id}', "ClientsController@destroy");
+Route::get('clientUpdate/{id}', "ClientsController@edit");
+Route::post('clientUpdate/{id}', "ClientsController@update");
