@@ -16,8 +16,8 @@
                     <td colspan="60">{{$client->name}}</td>
                     <td colspan="60">{{$client->email}}</td>
                     <td colspan="60">
-                        <a href="{{URL::to('clientUpdate',array($client->id))}}"><button type="button">Edit</button></a>
-                        <a href="{{URL::to('clientDelete',array($client->id))}}"><button type="button">Delete</button></a>
+                        <a href="{{URL::to('clientUpdate',array($client->id))}}"><button class="btn" type="button">Edit</button></a>
+                        <a href="{{URL::to('clientDelete',array($client->id))}}"><button class="btn" type="button">Delete</button></a>
                     </td>
                 </tr>
                 </tbody>
